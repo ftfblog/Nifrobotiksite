@@ -15,7 +15,7 @@ def index(request):
         form = contactform(request.POST)
     context = {
         "site_adı": site.objects.values_list("sitename").first(),
-        "site_favicon": "media/"+site.objects.values_list("site_favicon").first(),
+        "site_favicon": "media/"+str(site.objects.values_list("site_favicon").first()),
         "site":site.objects.order_by("order").first(),
         "menu":menu.objects.all(),
         "sliders":slider.objects.filter(slider_status ="Published").order_by("slider_order"),
