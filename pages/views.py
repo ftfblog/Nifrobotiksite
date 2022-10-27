@@ -16,7 +16,7 @@ def index(request):
         "team":teampage.objects.filter(status="Published",).order_by("order"),
         "site_footer":site.objects.order_by("order").first(),
         "footer":footer.objects.filter(menu_status="Published",).order_by("order"),
-        "site_favicon": "media/"+site.objects.values_list("site_favicon").first(),
+        "site_favicon": "media/"+str(site.objects.values_list("site_favicon").first()),
         "menu":menu.objects.all(),
     }
     return render(request,template_name="theme/page/team.html",context=context)
