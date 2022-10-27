@@ -16,7 +16,7 @@ def index(request):
         "team":teampage.objects.filter(status="Published",).order_by("order"),
         "site_footer":site.objects.order_by("order").first(),
         "footer":footer.objects.filter(menu_status="Published",).order_by("order"),
-        "site_favicon": "media/"+site.objects.values_list("site_favicon")[0][0],
+        "site_favicon": "media/"+site.objects.values_list("site_favicon").first(),
         "menu":menu.objects.all(),
     }
     return render(request,template_name="theme/page/team.html",context=context)
@@ -26,7 +26,7 @@ def sponsorview(request):
     context = {
         "site_footer":site.objects.order_by("order").first(),
         "footer":footer.objects.filter(menu_status="Published",).order_by("order"),
-        "site_favicon": "media/"+site.objects.values_list("site_favicon")[0][0],
+        "site_favicon": "media/"+site.objects.values_list("site_favicon").first(),
         "menu":menu.objects.all(),
         "sponsor":sponsorpage.objects.filter(status="Published",).order_by("order"),
 
@@ -38,7 +38,7 @@ def projectpageview(request):
     context = {
         "site_footer":site.objects.order_by("order").first(),
         "footer":footer.objects.filter(menu_status="Published",).order_by("order"),
-        "site_favicon": "media/"+site.objects.values_list("site_favicon")[0][0],
+        "site_favicon": "media/"+site.objects.values_list("site_favicon").first(),
         "menu":menu.objects.all(),
         "projects":projectpage.objects.filter(status="Published",).order_by("order"),
     }
@@ -49,7 +49,7 @@ def projectdetailview(request,slug):
     context = {
         "site_footer":site.objects.order_by("order").first(),
         "footer":footer.objects.filter(menu_status="Published",).order_by("order"),
-        "site_favicon": "media/"+site.objects.values_list("site_favicon")[0][0],
+        "site_favicon": "media/"+site.objects.values_list("site_favicon").first(),
         "menu":menu.objects.all(),
         "projects":projectpage.objects.filter(status="Published",).order_by("order"),
         "projectdetail":get_object_or_404(projectpage,status="Published",slug=slug),
@@ -61,7 +61,7 @@ def pageview(request,slug):
     context = {
         "site_footer":site.objects.order_by("order").first(),
         "footer":footer.objects.filter(menu_status="Published",).order_by("order"),
-        "site_favicon": "media/"+site.objects.values_list("site_favicon")[0][0],
+        "site_favicon": "media/"+site.objects.values_list("site_favicon").first(),
         "menu":menu.objects.all(),
         "page":page.objects.filter(status="Published",),
         "pagedetail":get_object_or_404(page,status="Published",slug=slug),
@@ -81,7 +81,7 @@ def iletisimpageview(request):
     context = {
         "site_footer":site.objects.order_by("order").first(),
         "footer":footer.objects.filter(menu_status="Published",).order_by("order"),
-        "site_favicon": "media/"+site.objects.values_list("site_favicon")[0][0],
+        "site_favicon": "media/"+site.objects.values_list("site_favicon").first(),
         "menu":menu.objects.all(),
         "form": form,
     }
