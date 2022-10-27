@@ -14,7 +14,7 @@ def index(request):
     else:
         form = contactform(request.POST)
     context = {
-        "site_adı": site.objects.values_list("sitename")[0][0],
+        "site_adı": site.objects.values_list("sitename").first(),
         "site_favicon": "media/"+site.objects.values_list("site_favicon")[0][0],
         "site":site.objects.order_by("order").first(),
         "menu":menu.objects.all(),
