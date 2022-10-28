@@ -45,7 +45,7 @@ class slider(models.Model):
     slider_name = models.CharField(max_length=200,primary_key=True,verbose_name="Slider Adı")
     slider_image = models.ImageField(("slider resmi"), upload_to="media/images/site/slider")
     slider_title = models.CharField(max_length=100,verbose_name="Slider Başlık")
-    slider_title_activate = models.BooleanField(default=True,verbose_name="Slider Adının Aktiflik Durumu")
+    #slider_title_activate = models.BooleanField(default=True,verbose_name="Slider Adının Aktiflik Durumu")
     slider_description = models.TextField(verbose_name="Slider Açıklaması")
     slider_description_activate = models.BooleanField(default=True,verbose_name="Slider Açıklaması Aktiflik Durumu")
     slider_button_title = models.CharField(max_length=50,verbose_name="Slider Buton Başlık")
