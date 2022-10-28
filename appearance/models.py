@@ -41,7 +41,7 @@ class menu(MPTTModel):
         verbose_name_plural='1) Menü'
         verbose_name = "Menü"
 
-class slider(models.Model):
+class slider(MPTTModel):
     slider_name = models.CharField(max_length=200,primary_key=True,verbose_name="Slider Adı")
     slider_image = models.ImageField(("slider resmi"), upload_to="media/images/site/slider")
     slider_title = models.CharField(max_length=100,verbose_name="Slider Başlık")
