@@ -67,7 +67,7 @@ class slider(models.Model):
         verbose_name_plural='2) Slider'
         verbose_name = "Slider"
 class icon(models.Model):
-    icon_name = models.CharField(max_length=100,primary_key=True,verbose_name="İcon Adı")
+    icon_name = models.CharField(max_length=100, primary_key=True, verbose_name="İcon Adı")
     icon_image = models.ImageField(("icon image"), upload_to="media/images/site/icons/",blank=True,null=True)
     icon_image_url = models.URLField(("icon resim url adresi"),blank=True,null=True)
     
@@ -90,7 +90,7 @@ class icon(models.Model):
         verbose_name_plural='3) İcon'
         verbose_name = "İcon"
 class feature(models.Model):
-    feature_name = models.CharField(max_length=100,verbose_name="Feature Adı")
+    feature_name = models.CharField(max_length=100, primary_key=True, verbose_name="Feature Adı")
     feature_image = models.ImageField(("Resim"), upload_to="media/images/site/features/",help_text="En uygun 415x592 boyutudur.")
     
     feature_first_title = models.CharField(max_length=100,verbose_name="Başlık")
@@ -125,22 +125,22 @@ class feature(models.Model):
         verbose_name_plural='4) Feature'
         ordering = ('feature_order',)
 class banner(models.Model):
-    banner_name = models.CharField(max_length=200,verbose_name="Banner Adı")
+    banner_name = models.CharField(max_length=200, primary_key=True, verbose_name="Banner Adı")
     banner_image = models.ImageField(("Banner resmi"), upload_to="media/images/site/banner",help_text="1770x550 boyutunda resim önerilmektedir.")
     
     banner_title = models.CharField(max_length=100,null=True,blank=True,verbose_name="Banner Başlığı")
-    banner_title_activate = models.BooleanField(default=True,verbose_name="Banner Başlığı Aktiflik Durumu")
+    #banner_title_activate = models.BooleanField(default=True,verbose_name="Banner Başlığı Aktiflik Durumu")
     
     banner_description = models.TextField(null=True,blank=True,verbose_name="Banner Açıklaması")
-    banner_description_activate = models.BooleanField(default=True,verbose_name="Banner Açıklaması Aktiflik Durumu")
+    #banner_description_activate = models.BooleanField(default=True,verbose_name="Banner Açıklaması Aktiflik Durumu")
     
     banner_button_title = models.CharField(max_length=50,null=True,blank=True,verbose_name="Banner Buton Başlığı")
     banner_button_url = models.SlugField(null=True,blank=True,verbose_name="Banner Buton Url Adresi")
-    banner_button_activate = models.BooleanField(default=True,verbose_name="Banner Buton Başlığı Aktiflik Durumu")
+    #banner_button_activate = models.BooleanField(default=True,verbose_name="Banner Buton Başlığı Aktiflik Durumu")
     
     banner_button2_title = models.CharField(max_length=50,null=True,blank=True,verbose_name="Banner Buton Başlığı")
     banner_button2_url = models.SlugField(null=True,blank=True,verbose_name="Banner Buton Url Adresi")
-    banner_button2_activate = models.BooleanField(default=True,verbose_name="Banner Buton Başlığı Aktiflik Durumu")
+    #banner_button2_activate = models.BooleanField(default=True,verbose_name="Banner Buton Başlığı Aktiflik Durumu")
     
     banner_order = models.IntegerField(editable=True,default=1,blank=False,null=False,verbose_name="Sıra")  
     banner_status = models.CharField(max_length=100,choices=STATUS,verbose_name="Banner Statüsü")
@@ -178,12 +178,12 @@ class banner(models.Model):
     
 
 class information_gallery(models.Model):
-    name =  models.CharField(verbose_name="Galeri Adı",max_length=200,help_text="admin sayfasında sizin göreceğiniz isim",)
+    name =  models.CharField(verbose_name="Galeri Adı", primary_key=True, max_length=200,help_text="admin sayfasında sizin göreceğiniz isim",)
     title =  RichTextField(verbose_name="Galeri Başlığı",max_length=200,help_text="admin sayfasında sizin göreceğiniz isim",config_name="Başlık",null=True,blank=True)
     description =  RichTextField(max_length=100,verbose_name="Galeri Açıklaması",null=True,blank=True)
     title_and_description_activate = models.BooleanField(default=True,verbose_name="Galeri Başlık Ve Açıklamanın aktiflik Durumu")
     menu_name = models.CharField(max_length=200,verbose_name="Galeri Menü Adı")
-    menu_activate = models.BooleanField(default=False,verbose_name="Galeri Menu aktiflik Durumu")
+    #menu_activate = models.BooleanField(default=False,verbose_name="Galeri Menu aktiflik Durumu")
     order = models.IntegerField(editable=True,default=1,blank=False,null=False,verbose_name="Sıra")  
     status = models.CharField(max_length=100,choices=STATUS,verbose_name="Gallery Statüsü")
     foregeinkey = models.ManyToManyField("image_for_information", verbose_name="Resim Seçimi",blank=False)
@@ -206,7 +206,7 @@ class information_gallery(models.Model):
         verbose_name_plural='6) Galeri Bilgisi'
 
 class image_for_information(models.Model):
-    image_for_information_name = models.CharField(max_length=200,verbose_name="Resim Adı",null=False,blank=False)
+    image_for_information_name = models.CharField(max_length=200, primary_key=True, verbose_name="Resim Adı",null=False,blank=False)
     image_for_information_image = models.ImageField(("gallery information resmi"), upload_to="media/images/site/image_for_information/",help_text="420x350 boyutunda resim önerilmektedir.",null=False,blank=False)
     image_for_information_title = models.CharField(max_length=200,verbose_name="Resim Başlığı",null=False,blank=False)
     image_for_information_title_url = models.SlugField(max_length=500,verbose_name="Resim Başlığının Url Adresi",null=False,blank=False)
@@ -226,7 +226,7 @@ class image_for_information(models.Model):
         verbose_name_plural='9) Resim'
 
 class experience(models.Model):
-    name =  models.CharField(verbose_name="Experience Adı",max_length=200,help_text="Admin sayfasında sizin göreceğiniz isim",)
+    name =  models.CharField(verbose_name="Experience Adı", primary_key=True, max_length=200,help_text="Admin sayfasında sizin göreceğiniz isim",)
     effect_number = models.PositiveSmallIntegerField()
     title =  models.CharField(verbose_name="Experience Başlığı",max_length=200)
     
@@ -266,7 +266,7 @@ class experience(models.Model):
         
 
 class get_more_with_us(models.Model):
-    name =  models.CharField(verbose_name="Bilgi Adı",max_length=200,help_text="admin sayfasında sizin göreceğiniz isim",)
+    name =  models.CharField(verbose_name="Bilgi Adı", max_length=200,help_text="admin sayfasında sizin göreceğiniz isim",)
     title =  models.CharField(verbose_name="Bilgi Başlığı",max_length=200)
 
     first_name = models.CharField(max_length=200,verbose_name="Bilgi Adı")
@@ -389,7 +389,7 @@ class get_more_with_us(models.Model):
 
 
 class contactform(models.Model):
-    first_name = models.CharField(max_length = 200,verbose_name = "Adınız")
+    first_name = models.CharField(max_length = 200, verbose_name = "Adınız")
     last_name = models.CharField(max_length = 200,verbose_name = "Soyadınız")
     email = models.EmailField(verbose_name = "Email Adresi")
     phone = PhoneField(verbose_name="Telefon numarası",null=True,blank=True,)
