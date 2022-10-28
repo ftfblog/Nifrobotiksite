@@ -25,17 +25,20 @@ class slideradmin(SortableAdminMixin,admin.ModelAdmin):
             }),
             ("Slider Başlık Bölümü",{
             "fields":("slider_title",
-                      "slider_title_activate",),
+                      #"slider_title_activate",
+                     ),
                     }),
             ("Slider Açıklama Bölümü:",{
             "fields":("slider_description",
-                      "slider_description_activate",),
+                      #"slider_description_activate",
+                     ),
                     }),         
             ("Slider Buton Bölümü",{
             "fields":(           
                        "slider_button_title",
                        "slider_button_url",
-                       "slider_button_activate",),
+                       #"slider_button_activate",
+            ),
                     }),
 
             ("Slider Statüsü",{
