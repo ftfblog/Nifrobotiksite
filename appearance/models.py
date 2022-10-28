@@ -67,7 +67,7 @@ class slider(models.Model):
         verbose_name_plural='2) Slider'
         verbose_name = "Slider"
 class icon(models.Model):
-    icon_name = models.CharField(max_length=100,verbose_name="İcon Adı")
+    icon_name = models.CharField(max_length=100,primary_key=True,verbose_name="İcon Adı")
     icon_image = models.ImageField(("icon image"), upload_to="media/images/site/icons/",blank=True,null=True)
     icon_image_url = models.URLField(("icon resim url adresi"),blank=True,null=True)
     
